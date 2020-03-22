@@ -32,6 +32,12 @@ def load_word_vectors():
   print("Success!")
   return word_vectors_model
 
+def get_lemma(word, spacy_model):
+  tok = spacy_model.tokenizer(word)
+  lemma = tok[0].lemma_
+  return lemma
+  
+  
 def sort_by_lemma(similar_list, spacy_model):
   words = ' '.join([s[0] for s in similar_list])
   tok = spacy_model.tokenizer(words)
@@ -60,12 +66,12 @@ def main(inword):
   most_similar_topten = model.most_similar(positive=[inword], topn=15)
   #most_similar_topten = most_similar_spacy(inword, spacy_model, topn=15)
   sorted_by_lemma = sort_by_lemma(most_similar_topten, spacy_model)
+  print("\nQuery: "+inword+' , Lemma: '+get_lemma(inword, spacy_model)+'\n')
   for l in sorted_by_lemma:
     print(l+'\n=========')
     for w in sorted_by_lemma[l]:
       print(w)
-    print('\n')
-  
+    
   
 if __name__=="__main__":
   main(sys.argv[1])
