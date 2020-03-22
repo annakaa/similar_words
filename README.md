@@ -6,7 +6,11 @@ pip install gensim
 pip install spacy
 python -m spacy download de
 </pre>
-<b>Nutzung:</b>
+<b>Finden ähnlicher Wörter:</b>
 <pre>
 python getSimilarWord.py <gesuchtes Wort>
+</pre>
+<b>POS Tagging:</b>
+<pre>
+python getPOS.py <Satz>
 </pre>
