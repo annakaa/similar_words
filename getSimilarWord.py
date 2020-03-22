@@ -3,7 +3,6 @@ import sys
 #import sqlite3
 from gensim.models.keyedvectors import KeyedVectors
 import spacy
-import numpy as np
 
 #def loadDB():
 #  connection = sqlite3.connect("German_English_dict_or.db")
